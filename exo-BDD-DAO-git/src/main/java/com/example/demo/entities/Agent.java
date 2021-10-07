@@ -2,15 +2,15 @@ package com.example.demo.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "AGENTS")
 public class Agent {
 
 	@Id
-	@GeneratedValue
-	@Column(length = 6)
+	@Column(length = 6, nullable = false)
 	private String agentCode;
 
 	@Column(length = 40)
@@ -21,6 +21,10 @@ public class Agent {
 	private String phoneNo;
 	@Column(length = 25)
 	private String country;
+	
+	public Agent() {
+		
+	}
 
 	public Agent(String agentCode, String agentName, Float commission, String phoneNo, String country) {
 		super();
