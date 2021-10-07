@@ -13,8 +13,25 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "PERSON")
 public class Person {
+	
+	public Person()
+	{
+		this("unkown", null, null);
+	}
+	
+	public Person(String name)
+	{
+		this(name, null, null);
+	}
  
-    @Id
+    public Person(String fullName, Date dateOfBirth, Float salary) {
+		super();
+		setFullName(fullName);
+		setDateOfBirth(dateOfBirth);
+		setSalary(salary);
+	}
+
+	@Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)
     private Long id;
