@@ -2,39 +2,43 @@ package com.example.demo.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "CUSTOMER")
 public class Customer {
 
 	@Id
-	@GeneratedValue
-	@Column(length = 6)
+	@Column(length = 6, nullable = false)
 	private String custCode;
 
 	@Column(length = 6)
 	private String agentCode;
 
-	@Column(length = 40)
+	@Column(length = 40, nullable = false)
 	private String custName;
 	@Column(length = 35)
 	private String custCity;
-	@Column(length = 35)
+	@Column(length = 35, nullable = false)
 	private String workingArea;
-	@Column(length = 20)
+	@Column(length = 20, nullable = false)
 	private String custCountry;
 	private Integer grade;
-	@Column(length = 12, precision = 2)
+	@Column(length = 12, precision = 2, nullable = false)
 	private Float openingAtm;
-	@Column(length = 12, precision = 2)
+	@Column(length = 12, precision = 2, nullable = false)
 	private Float receiveAtm;
-	@Column(length = 12, precision = 2)
+	@Column(length = 12, precision = 2, nullable = false)
 	private Float paymentAtm;
-	@Column(length = 12, precision = 2)
+	@Column(length = 12, precision = 2, nullable = false)
 	private Float outStandingAtm;
-	@Column(length = 17)
+	@Column(length = 17, nullable = false)
 	private String phoneNo;
+	
+	public Customer() {
+		
+	}
 	
 	public Customer(
 			String custCode,
