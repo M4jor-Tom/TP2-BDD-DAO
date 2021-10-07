@@ -14,12 +14,16 @@ import com.example.demo.entities.Person;
 public interface PersonDAO extends CrudRepository<Person, Long> {
 	@Query("SELECT p FROM Person p")
     public List<Person> findAllPersons();
+	
 	@Query("SELECT p FROM Person p where p.id = :id")
     public Optional<Person> findIdInPerson(@Param("id") Long id);
-    
+	
+    @Query("SELECT p FROM Person p WHERE p.fullName LIKE :name")
     public List<Person> findByFullNameLike(String name);
  
+    @Query("SELECT p FROM Person p WHERE p.salary > :f")
     public List<Person> findBySalaryGreaterThan(Float f);
  
+    @Query("SELECT p FROM Person p WHERE p.id > :id")
     public List<Person> findByIdGreaterThan(Long id);
 }
