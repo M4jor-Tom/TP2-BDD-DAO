@@ -45,17 +45,21 @@ public class MainController {
 			@RequestParam(name = "value", required = true) String value
 		) {
 		switch(method) {
-			case "all":
+			case "all": {
 				return getPersonDAO().findAllPersons();
+			}
 			
-			case "name-like":
+			case "name-like": {
 				return getPersonDAO().findByFullNameLike(value);
+			}
 			
-			case "salary-greater-than":
+			case "salary-greater-than": {
 				return getPersonDAO().findBySalaryGreaterThan(Float.valueOf(value));
+			}
 			
-			case "id-greater-than":
+			case "id-greater-than": {
 				return getPersonDAO().findByIdGreaterThan(Long.valueOf(value));
+			}
 		}
 		return null;
 	}
