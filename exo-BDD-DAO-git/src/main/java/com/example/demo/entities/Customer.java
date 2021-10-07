@@ -3,6 +3,8 @@ package com.example.demo.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,8 +15,9 @@ public class Customer {
 	@Column(length = 6, nullable = false)
 	private String custCode;
 
-	@Column(length = 6)
-	private String agentCode;
+	@ManyToOne
+	@JoinColumn(unique = false, nullable = false, updatable = true)
+	private Agent agent;
 
 	@Column(length = 40, nullable = false)
 	private String custName;
@@ -25,13 +28,13 @@ public class Customer {
 	@Column(length = 20, nullable = false)
 	private String custCountry;
 	private Integer grade;
-	@Column(length = 12, precision = 2, nullable = false)
+	@Column(name = "OPENING_AMT", length = 12, precision = 2, nullable = false)
 	private Float openingAtm;
-	@Column(length = 12, precision = 2, nullable = false)
+	@Column(name = "RECEIVE_AMT", length = 12, precision = 2, nullable = false)
 	private Float receiveAtm;
-	@Column(length = 12, precision = 2, nullable = false)
+	@Column(name = "PAYMENT_AMT", length = 12, precision = 2, nullable = false)
 	private Float paymentAtm;
-	@Column(length = 12, precision = 2, nullable = false)
+	@Column(name = "OUTSTANDING_AMT", length = 12, precision = 2, nullable = false)
 	private Float outStandingAtm;
 	@Column(length = 17, nullable = false)
 	private String phoneNo;
@@ -42,7 +45,7 @@ public class Customer {
 	
 	public Customer(
 			String custCode,
-			String agentCode,
+			Agent agent,
 			String custName,
 			String custCity,
 			String workingArea,
@@ -56,7 +59,7 @@ public class Customer {
 		) {
 		super();
 		setCustCode(custCode);
-		setAgentCode(agentCode);
+		setAgent(agent);
 		setCustName(custName);
 		setCustCity(custCity);
 		setWorkingArea(workingArea);
@@ -69,99 +72,99 @@ public class Customer {
 		setPhoneNo(phoneNo);
 	}
 	
-	private String getCustCode() {
+	public String getCustCode() {
 		return custCode;
 	}
 	
-	private void setCustCode(String custCode) {
+	public void setCustCode(String custCode) {
 		this.custCode = custCode;
 	}
 	
-	private String getAgentCode() {
-		return agentCode;
+	public Agent getAgent() {
+		return agent;
 	}
 	
-	private void setAgentCode(String agentCode) {
-		this.agentCode = agentCode;
+	public void setAgent(Agent agent) {
+		this.agent = agent;
 	}
 	
-	private String getCustName() {
+	public String getCustName() {
 		return custName;
 	}
 	
-	private void setCustName(String custName) {
+	public void setCustName(String custName) {
 		this.custName = custName;
 	}
 	
-	private String getCustCity() {
+	public String getCustCity() {
 		return custCity;
 	}
 	
-	private void setCustCity(String custCity) {
+	public void setCustCity(String custCity) {
 		this.custCity = custCity;
 	}
 	
-	private String getWorkingArea() {
+	public String getWorkingArea() {
 		return workingArea;
 	}
 	
-	private void setWorkingArea(String workingArea) {
+	public void setWorkingArea(String workingArea) {
 		this.workingArea = workingArea;
 	}
 	
-	private String getCustCountry() {
+	public String getCustCountry() {
 		return custCountry;
 	}
 	
-	private void setCustCountry(String custCountry) {
+	public void setCustCountry(String custCountry) {
 		this.custCountry = custCountry;
 	}
 	
-	private Integer getGrade() {
+	public Integer getGrade() {
 		return grade;
 	}
 	
-	private void setGrade(Integer grade) {
+	public void setGrade(Integer grade) {
 		this.grade = grade;
 	}
 	
-	private Float getOpeningAtm() {
+	public Float getOpeningAtm() {
 		return openingAtm;
 	}
 	
-	private void setOpeningAtm(Float openingAtm) {
+	public void setOpeningAtm(Float openingAtm) {
 		this.openingAtm = openingAtm;
 	}
 	
-	private Float getReceiveAtm() {
+	public Float getReceiveAtm() {
 		return receiveAtm;
 	}
 	
-	private void setReceiveAtm(Float receiveAtm) {
+	public void setReceiveAtm(Float receiveAtm) {
 		this.receiveAtm = receiveAtm;
 	}
 	
-	private Float getPaymentAtm() {
+	public Float getPaymentAtm() {
 		return paymentAtm;
 	}
 	
-	private void setPaymentAtm(Float paymentAtm) {
+	public void setPaymentAtm(Float paymentAtm) {
 		this.paymentAtm = paymentAtm;
 	}
 	
-	private Float getOutStandingAtm() {
+	public Float getOutStandingAtm() {
 		return outStandingAtm;
 	}
 	
-	private void setOutStandingAtm(Float outStandingAtm) {
+	public void setOutStandingAtm(Float outStandingAtm) {
 		this.outStandingAtm = outStandingAtm;
 	}
 	
-	private String getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
 	
-	private void setPhoneNo(String phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 }

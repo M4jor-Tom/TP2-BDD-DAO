@@ -15,6 +15,8 @@ public class Agent {
 
 	@Column(length = 40)
 	private String agentName;
+	@Column(length = 35)
+	private String workingArea;
 	@Column(length = 10, precision = 2)
 	private Float commission;
 	@Column(length = 15)
@@ -26,52 +28,59 @@ public class Agent {
 		
 	}
 
-	public Agent(String agentCode, String agentName, Float commission, String phoneNo, String country) {
+	public Agent(String agentName, Float commission, String phoneNo, String country) {
 		super();
-		setAgentCode(agentCode);
 		setAgentName(agentName);
 		setCommission(commission);
 		setPhoneNo(phoneNo);
 		setCountry(country);
 	}
 	
-	private String getAgentCode() {
+	public String getAgentCode() {
 		return agentCode;
 	}
 
-	private void setAgentCode(String agentCode) {
+	public void setAgentCode(String agentCode) {
 		this.agentCode = agentCode;
 	}
 
-	private String getAgentName() {
+	public String getAgentName() {
 		return agentName;
 	}
 
-	private void setAgentName(String agentName) {
+	public void setAgentName(String agentName) {
 		this.agentName = agentName;
 	}
 
-	private Float getCommission() {
+	public String getWorkingArea() {
+		return workingArea;
+	}
+
+	public void setWorkingArea(String workingArea) {
+		this.workingArea = workingArea;
+	}
+
+	public Float getCommission() {
 		return commission;
 	}
 
-	private void setCommission(Float commission) {
+	public void setCommission(Float commission) {
 		this.commission = commission;
 	}
 
-	private String getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
 
-	private void setPhoneNo(String phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 
-	private String getCountry() {
+	public String getCountry() {
 		return country;
 	}
 
-	private void setCountry(String country) {
+	public void setCountry(String country) {
 		this.country = country;
 	}
 }
