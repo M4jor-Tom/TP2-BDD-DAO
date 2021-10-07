@@ -60,6 +60,10 @@ public class MainController {
 			case "id-greater-than": {
 				return getPersonDAO().findByIdGreaterThan(Long.valueOf(value));
 			}
+			
+			case "begins-by-s": {
+				return getPersonDAO().findByFirstLetter("S");
+			}
 		}
 		return null;
 	}

@@ -26,4 +26,7 @@ public interface PersonDAO extends CrudRepository<Person, Long> {
  
     @Query("SELECT p FROM Person p WHERE p.id > :id")
     public List<Person> findByIdGreaterThan(Long id);
+
+    @Query("SELECT p FROM Person p WHERE p.fullName LIKE :string%")
+	public List<Person> findByFirstLetter(String string);
 }
