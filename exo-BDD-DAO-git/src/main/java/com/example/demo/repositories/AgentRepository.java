@@ -12,6 +12,16 @@ import com.example.demo.entities.Agent;
 public interface AgentRepository extends CrudRepository<Agent, String> {
 	List<Agent> findByCommissionGreaterThan(Float commission);
 	
-	@Query("SELECT a FROM Agent a JOIN Customer c ON c.agentCode = a.agentCode")
-	List<Agent> findByWorkingArea(String workingArea);
+	/*@Query(
+		"SELECT a.agentCode FROM AGENTS a INNER JOIN CUSTOMER c ON c.agentCode = a.agentCode WHERE c.workingArea = :workingArea"
+	)
+	List<Agent> findByWorkingArea(String workingArea);*/
 }
+
+/*
+SELECT a.AGENT_CODE
+FROM AGENTS a
+INNER JOIN CUSTOMER c
+ON c.AGENT_AGENT_CODE = a.AGENT_CODE
+WHERE c.WORKING_AREA = ''
+*/
