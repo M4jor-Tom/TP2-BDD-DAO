@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,11 +10,16 @@ public class Agent {
 
 	@Id
 	@GeneratedValue
+	@Column(length = 6)
 	private String agentCode;
 
+	@Column(length = 40)
 	private String agentName;
+	@Column(length = 10, precision = 2)
 	private Float commission;
+	@Column(length = 15)
 	private String phoneNo;
+	@Column(length = 25)
 	private String country;
 
 	public Agent(String agentCode, String agentName, Float commission, String phoneNo, String country) {

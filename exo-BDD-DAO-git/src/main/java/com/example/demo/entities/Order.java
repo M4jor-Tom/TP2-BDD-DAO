@@ -2,23 +2,33 @@ package com.example.demo.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Order {
 
 	@Id
 	@GeneratedValue
+	@Column(length = 6)
 	private Integer ordNum;
 
+	@Column(length = 6)
 	private String custCode;
+	@Column(length = 6)
 	private String agentCode;
 
+	@Column(length = 12, precision = 2)
 	private Float ordAmount;
+	@Column(length = 12, precision = 2)
 	private Float advanceAmount;
+    @Temporal(TemporalType.DATE)
 	private Date ordDate;
+	@Column(length = 60)
 	private String ordDescription;
 
 	public Order(
