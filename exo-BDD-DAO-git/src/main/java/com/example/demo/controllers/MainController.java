@@ -32,7 +32,7 @@ public class MainController {
 		) {
 		switch(method) {
 			case "id": {
-				Optional<Person> personOptional = getPersonDAO().findIdInPerson(Long.valueOf(value));
+				Optional<Person> personOptional = getPersonDAO().findById(Long.valueOf(value));
 				return personOptional.orElse(new Person());
 			}
 		}
@@ -46,7 +46,7 @@ public class MainController {
 		) {
 		switch(method) {
 			case "all": {
-				return getPersonDAO().findAllPersons();
+				return getPersonDAO().findAll();
 			}
 			
 			case "name-like": {
@@ -62,7 +62,7 @@ public class MainController {
 			}
 			
 			case "begins-by-s": {
-				return getPersonDAO().findByFirstLetter("S");
+				return getPersonDAO().findByFullNameStartingWith("S");
 			}
 		}
 		return null;
