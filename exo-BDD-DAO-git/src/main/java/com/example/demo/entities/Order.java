@@ -4,32 +4,37 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@Table(name = "ORDERS")
 public class Order {
 
 	@Id
-	@GeneratedValue
-	@Column(length = 6)
+	@Column(length = 6, nullable = false)
 	private Integer ordNum;
 
-	@Column(length = 6)
+	@Column(length = 6, nullable = false)
 	private String custCode;
-	@Column(length = 6)
+	@Column(length = 6, nullable = false)
 	private String agentCode;
 
-	@Column(length = 12, precision = 2)
+	@Column(length = 12, precision = 2, nullable = false)
 	private Float ordAmount;
-	@Column(length = 12, precision = 2)
+	@Column(length = 12, precision = 2, nullable = false)
 	private Float advanceAmount;
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
 	private Date ordDate;
-	@Column(length = 60)
+	@Column(length = 60, nullable = false)
 	private String ordDescription;
+	
+	public Order() {
+		
+	}
 
 	public Order(
 			Integer ordNum,
