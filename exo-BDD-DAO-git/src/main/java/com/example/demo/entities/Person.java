@@ -13,10 +13,10 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "PERSON")
 public class Person {
- 
-    @Id
-    @GeneratedValue
+
+	@Id
     @Column(name = "Id", nullable = false)
+	@GeneratedValue
     private Long id;
  
     @Column(name = "Full_Name", length = 64, nullable = false)
@@ -27,6 +27,23 @@ public class Person {
     private Date dateOfBirth;
     @Column(name = "Salary", nullable = false)
     private Float salary;
+
+	public Person()
+	{
+		this("unkown", null, null);
+	}
+	
+	public Person(String name)
+	{
+		this(name, null, null);
+	}
+ 
+    public Person(String fullName, Date dateOfBirth, Float salary) {
+		super();
+		setFullName(fullName);
+		setDateOfBirth(dateOfBirth);
+		setSalary(salary);
+	}
  
     public Long getId() {
         return id;
